@@ -38,10 +38,10 @@ const HomeComponent = () => {
 
     const handleExport = () => {
         const headings = [[
-            'Movie',
-            'Category',
-            'Director',
-            'Rating'
+            'iditem',
+            'namaitem',
+            'jumlahitem',
+            
         ]];
         const wb = utils.book_new();
         const ws = utils.json_to_sheet([]);
@@ -73,28 +73,29 @@ const HomeComponent = () => {
        <br></br>
           <div className="row">
 
-                       <div className="custom-file">
-                   <ButtonGroup>
-                   <Button variant="contained"  onClick={handleOpen}>
+                <div className="custom-file">
+                   <ButtonGroup variant='contained' sx={{display:"flex"}}>
+                   <Button  onClick={handleOpen}>
                    Choose file
                    </Button>
-                   <div style={{ display: "flex" }}>
+                   
 
-                   <Button   style={{ marginRight: "auto" }}  variant="outlined" onClick={handleExport} >
+                   <Button   style={{ marginRight: "auto" }}  onClick={handleExport} >
                        Export <i className="fa fa-download"></i>
 
                    </Button>
-                   <Button variant="contained" endIcon={<SendIcon />}>
+                   
+                   <Button sx={{alignItems:'end'}} endIcon={<SendIcon />}>
                         Export DB
                     </Button>      
-                   </div>
-                   </ButtonGroup>    
-                    <Modal
+                     </ButtonGroup>    
+            
+                        <Modal
                        open={open}
                        onClose={handleClose}
                        aria-labelledby="modal-modal-title"
                        aria-describedby="modal-modal-description"
-              >
+                        >
                        <Box sx={style}>
 
                        <Input type="file" className="custom-file-input" id="inputGroupFile" onChange={handleImport}
@@ -115,11 +116,10 @@ const HomeComponent = () => {
        
   
   
- <TableCell>Id</TableCell>
- <TableCell>Movie</TableCell>
- <TableCell>Category</TableCell>
- <TableCell>Directory</TableCell>
- <TableCell>Rating</TableCell>
+ <TableCell>iditem</TableCell>
+ <TableCell>namaitem</TableCell>
+ <TableCell>jumlahitem</TableCell>
+
             </TableRow>
             </TableHead>
             <TableBody>
@@ -130,10 +130,8 @@ const HomeComponent = () => {
          movies.map((movie, index) => (
              <TableRow key={index}>
                  <TableCell scope="row">{ index + 1 }</TableCell>
-                 <TableCell>{ movie.Movie }</TableCell>
-                 <TableCell>{ movie.Category }</TableCell>
-                 <TableCell>{ movie.Director }</TableCell>
-                 <TableCell><span className="badge bg-warning text-dark">{ movie.Rating }</span></TableCell>
+                 <TableCell>{ movie.namaitem }</TableCell>
+                 <TableCell><span className="badge bg-warning text-dark">{ movie.jumlahitem }</span></TableCell>
              </TableRow> 
          ))
          :
