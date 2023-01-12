@@ -11,7 +11,7 @@ import TableRow from '@mui/material/TableRow';
 import ButtonGroup from "@mui/material/ButtonGroup";
 import Button from "@mui/material/Button"
 import Modal from '@mui/material/Modal';
-
+import SendIcon from '@mui/icons-material/Send';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 
@@ -83,7 +83,10 @@ const HomeComponent = () => {
                    <Button   style={{ marginRight: "auto" }}  variant="outlined" onClick={handleExport} >
                        Export <i className="fa fa-download"></i>
 
-                   </Button>      
+                   </Button>
+                   <Button variant="contained" endIcon={<SendIcon />}>
+                        Export DB
+                    </Button>      
                    </div>
                    </ButtonGroup>    
                     <Modal
